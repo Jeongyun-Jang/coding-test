@@ -15,9 +15,15 @@
 # [3, 30, 34, 5, 9]	"9534330"
 
 # https://school.programmers.co.kr/learn/courses/30/lessons/42746
+from functools import cmp_to_key
+
+def compare(x,y):
+    if str(y) + str(x) > str(x) + str(y):
+        return 1
+    else:
+        return -1
 
 def solution(numbers):
-    answer = ''
-    sorted_num = sorted(numbers, key=lambda x: x % 10, reverse=True)
-    answer = ''.join(map(str, sorted_num))
-    return answer
+    numbers = sorted(numbers, key = cmp_to_key(compare))
+    
+    return str(int(''.join(map(str,numbers))))
