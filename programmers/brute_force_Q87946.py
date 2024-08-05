@@ -12,7 +12,7 @@ def dfs(k, cnt, dungeons, check):
         if check[i] == 0 and k >= dungeons[i][0]:
             check[i] = 1
             totalEnergy = k-dungeons[i][1]
-            DFS(totalEnergy, cnt+1, dungeons, check)
+            dfs(totalEnergy, cnt+1, dungeons, check)
             check[i] = 0
             
 def solution(k, dungeons):
